@@ -14,8 +14,16 @@ const connect = () => {
   })
 
   conn.on("connect", () => {
-    conn.write("Name: BCC" );
+    conn.write("Name: BCC");
   });
+
+  conn.on("connect", () => {
+    conn.write("Move: up");
+  });
+
+  setInterval(() => {
+      conn.write("Move: left");
+  }, 40);
 
   // interpret incoming data as text
   conn.setEncoding("utf8");
